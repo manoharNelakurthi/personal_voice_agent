@@ -1,4 +1,3 @@
-from .audio_utils import record_audio
 from .llm_client import LLMClient
 from .stt import SpeechToText
 from .text_to_speech import TextToSpeech
@@ -16,10 +15,16 @@ class VoiceAgent:
             return "No speech detected."
 
         response = self.llm_client.generate(text)
-        self.tts_engine.speak(response)
+        try:
+            self.tts_engine.speak(response)
+        except Exception as exc:  # pragma: no cover
+            print(f"Playback failed: {exc}")
         return response
 
     def respond_text(self, user_input: str):
         response = self.llm_client.generate(user_input)
-        self.tts_engine.speak(response)
+        try:
+            self.tts_engine.speak(response)
+        except Exception as exc:  # pragma: no cover
+            print(f"Playback failed: {exc}")
         return response

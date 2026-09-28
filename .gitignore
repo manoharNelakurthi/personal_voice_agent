@@ -15,14 +15,20 @@ dist/
 # IDE files
 .vscode/
 .idea/
+*.swp
+*.swo
 
 # OS files
 .DS_Store
 Thumbs.db
 
-# Audio output
+# Audio and database files
 *.wav
 *.mp3
+*.db
 
 # Logs
 *.log
+
+# Streamlit
+.streamlit/

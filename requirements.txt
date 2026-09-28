@@ -7,3 +7,5 @@ pyttsx3==2.90
 fastapi==0.115.0
 uvicorn==0.30.6
 python-multipart==0.0.9
+streamlit==1.42.0
+requests==2.32.3
